@@ -1,0 +1,10 @@
+ID,Scenario,Priority,Objective,Expected Result
+P2-01,Successful login with valid credentials,P2,Verify a known valid user can sign in successfully,"User is authenticated and redirected to the intended landing page or dashboard."
+P2-02,Login attempt with invalid username or password,P2,Validate error handling for incorrect credentials,"Error message is shown and no unauthorized session is created."
+P2-03,Empty username or password submission,P2,Verify required-field validation,"Clear validation errors appear and the user is not authenticated."
+P2-04,Locked or disabled account login attempt,P2,Verify access is denied for blocked accounts,"User is blocked with a clear message and no access is granted."
+P2-05,Session timeout or expired session handling,P2,Validate behavior when the session expires,"User is prompted to log in again and protected content is not accessible without reauthentication."
+P2-06,Logout flow,P2,Confirm users can sign out cleanly,"Session ends and user returns to the login state."
+P2-07,Browser back button / stale session behavior,P2,Verify security after logout,"Protected content remains inaccessible without reauthentication."
+P2-08,Basic accessibility validation for login form,P2,Check keyboard and screen-reader usability,"Focus order and labels are usable and accessible."
+P2-09,Production regression check on login page,P2,Check for basic regressions in UI and routing,"No broken layout, redirect, or validation errors are observed beyond expected login behavior."
