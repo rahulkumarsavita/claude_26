@@ -1,0 +1,31 @@
+Jira Ticket 1: Shopping Cart Workflow
+
+| Field | Value / Details |
+|---|---|
+| Project | AUTO-EX (Automation Exercise E-Commerce) |
+| Issue Type | Story |
+| Issue Key | AE-102 |
+| Summary | Cart - Add Products to Cart and Verify Quantity & Price Calculation |
+| Component | Cart / Checkout |
+| Fix Version / Sprint | Release v1.0.0 / Sprint 2 |
+| Linked Issues | Blocks AE-103 (Order Checkout & Payment); Relates to AE-101 (Product Catalog Search) |
+| Attachments | cart_spec_mock.png, add_to_cart_payload.json |
+
+## Description
+As a customer, I want to browse the product catalog and add multiple items to my shopping cart so that I can review prices, adjust quantities, and verify totals prior to checkout.
+
+## Acceptance Criteria
+
+### Adding Items
+- Hovering over a product card in /products displays an "Add to cart" overlay button.
+- Clicking "Add to cart" triggers a modal: "Your product has been added to cart." with options to Continue Shopping or View Cart.
+
+### Cart State Verification
+- Navigating to /view_cart displays item thumbnail, Name, Category, Price, Quantity, and Total Price.
+- Calculated Total: Item Total must equal Unit Price x Quantity for each row.
+
+### Cart Persistence
+- Adding Product ID 1 ($500) and Product ID 2 ($400) results in an overall cart subtotal of $900.
+
+### Item Removal
+- Clicking the X (Delete) button removes the item dynamically without requiring a full page refresh.
