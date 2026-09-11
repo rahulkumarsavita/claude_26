@@ -1,0 +1,37 @@
+Test Case ID,Test Case Name,Precondition,Description,Expected Result,Test Steps
+TC-01,Add a single product to the cart from the product listing,/products is loaded and lists at least one purchasable product.,,"The product is added to the cart and a confirmation modal is displayed with ""Continue Shopping"" and ""View Cart"" options.","1. Navigate to /products - the product listing page loads with product cards visible.
+2. Hover over a product card - an ""Add to cart"" overlay button appears on the card.
+3. Click ""Add to cart"" - a modal appears with the message ""Your product has been added to cart."" and Continue Shopping / View Cart options."
+TC-02,Cart displays correct item details after adding a product,One product has already been added to the cart (per TC-01).,,"The cart row matches the product that was added, with all required fields populated.","1. Click ""View Cart"" from the confirmation modal (or navigate to /view_cart) - the cart page loads.
+2. Inspect the row for the added product - it shows item thumbnail, Name, Category, Price, Quantity, and Total Price matching the product added."
+TC-03,Item Total equals Unit Price x Quantity,A product with a known unit price and quantity is in the cart.,,Total Price for the row = Unit Price x Quantity.,"1. Add a product to the cart with a known price - the product appears in the cart with Quantity = 1 by default.
+2. On /view_cart, note the Price and Quantity columns for the row - both values are visible and legible.
+3. Compute Price x Quantity and compare to the Total Price column - Total Price equals Price x Quantity exactly."
+TC-04,Cart subtotal is correct for multiple products,Cart is empty; two distinct products with known prices are available in the catalog.,,Cart subtotal equals the sum of each row's Total Price.,"1. Add the first product to the cart - a confirmation modal appears and the item is added.
+2. Click ""Continue Shopping"" and add a second, different product - the confirmation modal appears again and the second item is added.
+3. Navigate to /view_cart - both products are listed as separate rows with correct individual Total Price values.
+4. Sum the Total Price of both rows - the sum equals the cart's overall subtotal."
+TC-05,Remove an item from the cart dynamically,At least one item is in the cart.,,"The item row disappears and remaining totals update, with no full page reload/navigation.","1. On /view_cart, note the current items and subtotal - the cart state before deletion is recorded.
+2. Click the X (Delete) icon on one item's row - the row is removed from the table immediately, without a full page reload.
+3. Re-check the subtotal/remaining rows - the subtotal reflects only the remaining items and the deleted item's price is no longer included."
+TC-06,"""Continue Shopping"" keeps the item in the cart",A product has just been added and the confirmation modal is visible.,,User returns to the product listing and the item remains in the cart.,"1. Add a product to the cart - the confirmation modal appears.
+2. Click ""Continue Shopping"" - the modal closes and the product listing page is shown.
+3. Navigate to /view_cart - the previously added product is still present in the cart."
+TC-07,"""View Cart"" navigates to the cart page",A product has just been added and the confirmation modal is visible.,,User is taken to /view_cart showing the added item.,"1. Add a product to the cart - the confirmation modal appears.
+2. Click ""View Cart"" - the user is navigated to /view_cart.
+3. Inspect the cart contents - the added product is listed with correct details."
+TC-08,Add the same product to the cart twice,Cart is empty.,,"To be confirmed - either quantity increments on a single row, or a duplicate row is created. Flag as an open question in the test plan.","1. Add a product to the cart - the item appears in the cart with Quantity = 1.
+2. Add the same product to the cart again - observe whether Quantity increments on the existing row or a new row is added.
+3. Verify the subtotal against the observed behavior - the subtotal matches Unit Price x total Quantity for that product, regardless of row layout."
+TC-09,Removing all items shows the empty-cart state,One or more items are in the cart.,,Cart displays an empty-state message/UI once all rows are removed; no stale totals remain.,"1. On /view_cart, delete every item one at a time - each deletion removes its row without a full page reload.
+2. After the last item is removed, inspect the cart - it shows an empty-cart message/state, and no leftover subtotal is displayed."
+TC-10,Add product with increased quantity from the product detail page,A product detail page with a quantity selector is available.,,"Cart quantity for that product matches the quantity selected on the detail page, and Total Price reflects it.","1. Open a product's detail page from /products - the product detail page loads with a quantity input.
+2. Set quantity to a value greater than 1 (e.g. 3) - the quantity field reflects the entered value.
+3. Click ""Add to Cart"" - the confirmation modal appears.
+4. Navigate to /view_cart - the cart row shows Quantity = 3 and Total Price = Unit Price x 3."
+TC-11,Cart contents persist after a page refresh,At least one item is in the cart.,,Cart contents and totals are unchanged after a page refresh.,"1. Add a product to the cart and navigate to /view_cart - the cart shows the added item and its total.
+2. Refresh the page - the page reloads.
+3. Inspect the cart contents - the same item(s) and totals are still present, unchanged."
+TC-12,Add-to-cart control is operable via keyboard only,/products is loaded.,,"The ""Add to cart"" control can be focused and activated using only the keyboard.","1. Navigate to /products using the keyboard (Tab) only - focus moves visibly between interactive elements.
+2. Tab to a product's ""Add to cart"" control - the control receives visible focus.
+3. Activate it with Enter/Space - the product is added and the confirmation modal appears, same as with a mouse click."

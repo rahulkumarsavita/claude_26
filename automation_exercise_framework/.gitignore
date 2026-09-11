@@ -1,0 +1,5 @@
+screenshots/*.png
+reports/*.html
+__pycache__/
+*.pyc
+.pytest_cache/
